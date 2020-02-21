@@ -2,6 +2,8 @@ using Scalar.Tests.Should;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
+
 namespace Scalar.FunctionalTests.Tools
 {
     public static class GitHelpers
@@ -42,6 +44,7 @@ namespace Scalar.FunctionalTests.Tools
             bool removeUpgradeMessages = true,
             string input = null)
         {
+            Thread.Sleep(1000);
             ProcessResult result = GitProcess.InvokeProcess(scalarRepoRoot, command, input, environmentVariables);
             string errors = result.Errors;
 
